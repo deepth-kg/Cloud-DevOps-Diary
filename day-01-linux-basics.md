@@ -1,47 +1,46 @@
-1. pwd
+pwd
+Shows the current working directory (your present location in the filesystem).
 
-Shows the current working directory (your present location in the system).
+ls -la / ls -lrtha
 
-2. ls -la
+ls -la — Lists all files (including hidden files) with detailed information (permissions, owner, size, date).
 
-Lists all files, including hidden ones, with detailed information.
+ls -lrtha — Lists files with details, long format, reverse sort, time sort (newest first normally), human-readable sizes, all (include hidden).
+(Flags can be combined in any order, e.g. ls -alh.)
 
-3. cd ~
+cd ~ / cd /
 
-Moves you to your home directory.
+cd ~ — Move to your home directory.
 
-4. mkdir practice week1
+cd / — Move to the root directory.
 
-Creates two directories named practice and week1.
+mkdir practice week1 / mkdir -p practice/week1
 
-5. touch notes.txt
+mkdir practice week1 — Create two directories named practice and week1.
 
-Creates an empty file called notes.txt.
+mkdir -p practice/week1 — Create the practice directory and the week1 subdirectory inside it; 
+-p creates parent directories as needed and won’t error if they already exist.
 
-6. echo "hello" > hello.txt
+touch notes.txt
+Creates an empty file named notes.txt (or updates its timestamp if it already exists).
 
-Writes the word “hello” to a file (creates file if it doesn’t exist).
+echo "hello" > hello.txt
+Writes hello into hello.txt (creates the file if it doesn't exist). Note: > overwrites; use >> to append.
 
-7. cat hello.txt
+cat hello.txt
+Displays the full contents of hello.txt.
 
-Displays the full content of the file.
-
-8. head -n 5 /etc/passwd
-
+head -n 5 /etc/passwd
 Shows the first 5 lines of /etc/passwd.
 
-9. tail -n 10 /var/log/syslog
+tail -n 10 /var/log/syslog
+Shows the last 10 lines of /var/log/syslog (may require sudo on some systems).
 
-Shows the last 10 lines of /var/log/syslog.
+man ls
+Opens the manual (help) page for the ls command.
 
-10. man ls
+which bash
+Shows the full path to the bash executable (e.g. /bin/bash) — useful to confirm which shell binary is installed.
 
-Opens the manual/help page for the ls command.
-
-11. which bash
-
-Shows the file path of the bash shell.
-
-12. find ~ -type f -size +1M -maxdepth 3
-
-Searches your home directory (~) for files larger than 1MB, up to 3 levels deep.
+find ~ -type f -size +1M -maxdepth 3
+Searches your home directory (~) for files (-type f) larger than 1 MiB (-size +1M), searching up to 3 directory levels deep (-maxdepth 3).
